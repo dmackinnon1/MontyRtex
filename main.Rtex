@@ -50,9 +50,8 @@ MontyHall$firstChoice <- sample(1:3,trial_limit,replace=TRUE)
 
 Next, we will determine if the initially selected door was the winner. Monty will keep this information from the contestant, and instead select a door to reveal as a dud.
 
-<<cache=TRUE>>=
-MontyHall$selectedWinner <- MontyHall$firstChoice ==
-MontyHall$prizeDoor
+<<cache=TRUE,tidy.opts = list(width.cutoff = 40, wrap = TRUE, arrow = TRUE), tidy = TRUE>>=
+MontyHall$selectedWinner <- MontyHall$firstChoice == MontyHall$prizeDoor
 for (i in trial) {
   if(MontyHall$selectedWinner[i]){
     MontyHall$revealedDoor[i] <-  sample(c(1:3)[- which(c(1:3) 
@@ -75,8 +74,7 @@ MontyHall$action[!MontyHall$switchChoice] <- "stayed"
 for (i in trial) {
   if (MontyHall$switchChoice[i]){ 
     t <- c(1:3)[-which(c(1:3)==MontyHall$firstChoice[i])]; 
-    MontyHall$finalChoice[i] <- 
-    t[-which(t==MontyHall$revealedDoor[i])]
+    MontyHall$finalChoice[i] <- t[-which(t==MontyHall$revealedDoor[i])]
   } else {
     MontyHall$finalChoice[i] <- MontyHall$firstChoice[i]
   }
