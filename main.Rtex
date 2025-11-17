@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 
+\usepackage{adjustbox}
+
 \title{MontyRtex}
 \author{Dan (Overleaf Support) MacKinnon}
 \date{July 2023}
